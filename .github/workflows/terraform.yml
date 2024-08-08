@@ -12,6 +12,7 @@ jobs:
 
   DEV-APPLY:
     runs-on: self-hosted
+    environment: dev
     needs: DEV-PLAN
     steps:
       - uses: actions/checkout@v4
@@ -23,18 +24,21 @@ jobs:
 
   QA:
     runs-on: ubuntu-latest
+    environment: qa
     needs: DEV-PLAN
     steps:
       - run: echo dummy job
 
   UAT:
     runs-on: ubuntu-latest
+    environment: uat
     needs: QA
     steps:
       - run: echo dummy job
 
   PROD:
     runs-on: self-hosted
+    environment: prod
     needs: UAT
     steps:
       - uses: actions/checkout@v4
