@@ -25,7 +25,7 @@ jobs:
   QA:
     runs-on: ubuntu-latest
     environment: qa
-    needs: DEV-PLAN
+    needs: DEV-APPLY
     steps:
       - run: echo dummy job
 
