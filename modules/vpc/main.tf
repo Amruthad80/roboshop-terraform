@@ -14,6 +14,12 @@ resource "aws_vpc_peering_connection" "main" {
   auto_accept = true
 }
 
+resource "aws_route" "default-vpc-peer-route" {
+  route_table_id            = var.default_vpc_rt
+  destination_cidr_block    = var.cidr
+  vpc_peering_connection_id = aws_vpc_peering_connection.main.id
+}
+
 ## subnets
 resource "aws_subnet" "public" {
   count      = length(var.public_subnets)
