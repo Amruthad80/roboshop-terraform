@@ -53,7 +53,7 @@ resource "aws_subnet" "db" {
 }
 
 ## route table
-resouce "aws_route_table" "public" {
+resource "aws_route_table" "public" {
   count     = length(var.public_subnets)
   vpc_id    = aws_vpc.main.id
 
@@ -62,7 +62,7 @@ resouce "aws_route_table" "public" {
   }
 }
 
-resouce "aws_route_table" "app" {
+resource "aws_route_table" "app" {
   count     = length(var.app_subnets)
   vpc_id    = aws_vpc.main.id
 
@@ -71,7 +71,7 @@ resouce "aws_route_table" "app" {
   }
 }
 
-resouce "aws_route_table" "web" {
+resource "aws_route_table" "web" {
   count     = length(var.web_subnets)
   vpc_id    = aws_vpc.main.id
 
@@ -80,7 +80,7 @@ resouce "aws_route_table" "web" {
   }
 }
 
-resouce "aws_route_table" "db" {
+resource "aws_route_table" "db" {
   count     = length(var.db_subnets)
   vpc_id    = aws_vpc.main.id
 
