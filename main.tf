@@ -20,7 +20,7 @@ module "ec2" {
   name          = each.key
   instance_type = each.value["instance_type"]
   allow_port      = each.value["allow_port"]
-  allow_sg_cidr   = each.value["allow_sg_dir"]
+  allow_sg_cidr   = each.value["allow_sg_cidr"]
   subnet        = module.vpc.subnets["web"][0]
   vpc_id        = module.vpc.vpc_id
   env           = var.env
