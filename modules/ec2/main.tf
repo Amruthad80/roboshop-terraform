@@ -16,7 +16,7 @@ resource "aws_security_group" "allow_tls" {
     cidr_blocks      = var.bastion_nodes
   }
   ingress {
-    from_port        = var.allow_sg_cidr
+    from_port        = var.allow_port
     to_port          = var.allow_port
     protocol         = "TCP"
     cidr_blocks      = var.allow_sg_cidr
