@@ -19,28 +19,28 @@ jobs:
       - name: terraform init
         run: terraform init -backend-config=env-dev/state.tfvars
       - name: terraform apply
-        run: terraform apply -var-file=env-dev/main.tfvars -auto-approve
+        run: terraform apply -var-file=env-dev/main.tfvars -auto-approve -var vault_token=${{ secrets.VAULT_TOKEN }}
 
 
-  QA:
-    runs-on: ubuntu-latest
-    environment: qa
-    needs: DEV-APPLY
-    steps:
-      - run: echo dummy job
-
-  UAT:
-    runs-on: ubuntu-latest
-    environment: uat
-    needs: QA
-    steps:
-      - run: echo dummy job
-
-  PROD:
-    runs-on: self-hosted
-    environment: prod
-    needs: UAT
-    steps:
-      - uses: actions/checkout@v4
-      - name: terraform init
-        run: terraform init -backend-config=env-prod/state.tfvars
+#  QA:
+#    runs-on: ubuntu-latest
+#    environment: qa
+#    needs: DEV-APPLY
+#    steps:
+#      - run: echo dummy job
+#
+#  UAT:
+#    runs-on: ubuntu-latest
+#    environment: uat
+#    needs: QA
+#    steps:
+#      - run: echo dummy job
+#
+#  PROD:
+#    runs-on: self-hosted
+#    environment: prod
+#    needs: UAT
+#    steps:
+#      - uses: actions/checkout@v4
+#      - name: terraform init
+#        run: terraform init -backend-config=env-prod/state.tfvars
