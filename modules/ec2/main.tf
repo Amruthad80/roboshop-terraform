@@ -51,4 +51,9 @@ resource "aws_autoscaling_group" "main" {
     id      = aws_launch_template.main.id
     version = "$Latest"
   }
+  tag {
+    key                 = "name"
+    propagate_at_launch = ture
+    value               = "${var.name}-${var.env}"
+  }
 }
