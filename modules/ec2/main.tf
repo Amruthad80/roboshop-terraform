@@ -52,7 +52,7 @@ resource "aws_autoscaling_group" "main" {
     version = "$Latest"
   }
   tag {
-    key                 = "name"
+    key                 = "Name"
     propagate_at_launch = ture
     value               = "${var.name}-${var.env}"
   }
