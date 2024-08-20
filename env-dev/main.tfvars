@@ -1,5 +1,7 @@
-env = "dev"
+env           = "dev"
 bastion_nodes = ["172.31.34.243/32"]
+zone_id       = "Z0920686IGN3402SVP12"
+
 vpc = {
   cidr = "10.10.0.0/16"
   public_subnets = ["10.10.0.0/24", "10.10.1.0/24"]
