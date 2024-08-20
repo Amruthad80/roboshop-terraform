@@ -44,7 +44,7 @@ db = {
   mongo = {
     subnet_ref     = "db"
     instance_type  = "t3.small"
-    allow_port     = 27107
+    allow_port     = 27017
     allow_sg_cidr  = ["10.10.2.0/24", "10.10.3.0/24"]
   }
   mysql = {
