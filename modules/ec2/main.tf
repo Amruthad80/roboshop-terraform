@@ -55,7 +55,6 @@ resource "aws_autoscaling_group" "main" {
   min_size            = var.capacity["min"]
   vpc_zone_identifier = var.subnet_ids
   target_group_arns   = [aws_lb_target_group.main.*.arn[count.index]]
-  load_balancers      = [aws_lb.main.*.arn[count.index]]
 
   launch_template {
     id      = aws_launch_template.main.*.id[0]
@@ -141,4 +140,17 @@ resource "aws_lb_target_group" "main" {
   port     = var.allow_port
   protocol = "HTTP"
   vpc_id   = var.vpc_id
+}
+
+##lb_listener
+resource "aws_lb_listener" "front_end" {
+  count   = var.asg ? 1 : 0
+  load_balancer_arn = aws_lb.main.arn
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.main.*.arn[count.index]
+  }
 }
