@@ -145,7 +145,7 @@ resource "aws_lb_target_group" "main" {
 ##lb_listener
 resource "aws_lb_listener" "front_end" {
   count   = var.asg ? 1 : 0
-  load_balancer_arn = aws_lb.main.arn
+  load_balancer_arn = aws_lb.main.*.arn[count.index]
   port              = "80"
   protocol          = "HTTP"
 
