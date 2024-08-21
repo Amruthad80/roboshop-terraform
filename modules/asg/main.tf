@@ -58,7 +58,7 @@ resource "aws_autoscaling_group" "main" {
   target_group_arns   = [aws_lb_target_group.main.arn]
 
   launch_template {
-    id      = aws_launch_template.main.id[0]
+    id      = aws_launch_template.main.id
     version = "$Latest"
   }
   tag {
