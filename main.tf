@@ -62,6 +62,6 @@ module "load-balancers" {
   internal            = each.value["internal"]
   env                 = var.env
   vpc_id              = module.vpc.vpc_id
-  subnet_ids    = module.vpc.subnets[each.value["subnet_ref"]]
-  acm_https_arn = each.value["acm_https_arn"]
+  subnet_ids          = module.vpc.subnets[each.value["subnet_ref"]]
+  acm_https_arn       = each.value["acm_https_arn"]
 }
