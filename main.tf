@@ -58,7 +58,7 @@ module "load-balancers" {
 
   for_each            = var.load_balancers
   name                = each.key
-  allow_lb_sg_cidr    = each.value["allow_lb_sg_cid"]
+  allow_lb_sg_cidr    = each.value["allow_lb_sg_cidr"]
   load_balancer_type  = each.value["load_balancer_type"]
   internal            = each.value["internal"]
   env                 = var.env
