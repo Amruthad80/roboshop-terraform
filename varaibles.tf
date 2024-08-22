@@ -6,4 +6,4 @@ variable "db" {}
 variable "vault_token" {}
 variable "zone_id" {}
 variable "load_balancers" {}
-variable "subnet_ids" {}
+#variable "subnet_ids" {}
