@@ -27,6 +27,7 @@ apps = {
       min = 1
     }
     lb_ref = "public"
+    lb_rule_priority = 1
   }
 
   catalogue = {
@@ -41,6 +42,7 @@ apps = {
       min = 1
     }
     lb_ref = "private"
+    lb_rule_priority = 1
   }
   cart = {
     subnet_ref     = "app"
@@ -54,6 +56,7 @@ apps = {
       min = 1
     }
     lb_ref = "private"
+    lb_rule_priority = 2
   }
   user = {
     subnet_ref     = "app"
@@ -67,6 +70,7 @@ apps = {
       min = 1
     }
     lb_ref = "private"
+    lb_rule_priority = 3
   }
   shipping = {
     subnet_ref     = "app"
@@ -80,6 +84,7 @@ apps = {
       min = 1
     }
     lb_ref = "private"
+    lb_rule_priority = 4
   }
   payment = {
     subnet_ref     = "app"
@@ -93,6 +98,7 @@ apps = {
       min = 1
     }
     lb_ref = "private"
+    lb_rule_priority = 5
   }
 }
 
