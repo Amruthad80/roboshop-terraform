@@ -27,6 +27,7 @@ resource "aws_security_group" "load-balancer" {
     Name = "${var.name}-${var.env}-alb-sg"
   }
 }
+
 ## Application Loadbalancer Creation
 resource "aws_lb" "main" {
   name               = "${var.name}-${var.env}"
@@ -75,6 +76,7 @@ resource "aws_lb_listener" "public-https" {
     }
   }
 }
+
 ##lb_listener
 resource "aws_lb_listener" "internal-http" {
   count   = var.internal ? 1 : 0
