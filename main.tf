@@ -31,7 +31,6 @@ module "apps" {
   asg           = true
   vault_token   = var.vault_token
   zone_id       = var.zone_id
-  internal      = each.value["lb_internal"]
   dns_name      = module.load-balancers[each.value["lb_ref"]].dns_name
   listener_arn  = module.load-balancers[each.value["lb_ref"]].listener_arn
   lb_rule_priority = each.value["lb_rule_priority"]
