@@ -70,7 +70,7 @@ resource "aws_lb_listener" "public-https" {
 
     fixed_response {
       content_type = "text/plain"
-      message_body = "Congig error /input is not expected"
+      message_body = "Config error /input is not expected"
       status_code  = "500"
     }
   }
@@ -87,7 +87,7 @@ resource "aws_lb_listener" "internal-http" {
 
     fixed_response {
       content_type = "text/plain"
-      message_body = "Congig error /input is not expected"
+      message_body = "Config error /input is not expected"
       status_code  = "500"
     }
   }
