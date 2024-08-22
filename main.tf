@@ -53,3 +53,17 @@ module "db" {
   vault_token   = var.vault_token
   zone_id       = var.zone_id
 }
+
+module "load-balancers" {
+  source = "./modules/load-balancer"
+
+  for_each            = var.load_balancers
+  name                = each.key
+  allow_lb_sg_cidr    = each.value["allow_lb_sg_cid"]
+  load_balancer_type  = each.value["load_balancer_type"]
+  internal            = each.value["internal"]
+  env                 = var.env
+  vpc_id              = module.vpc.vpc_id
+  subnet_ids    = module.vpc.subnets[each.value["subnet_ref"]]
+  acm_https_arn = each.value["acm_https_arn"]
+}

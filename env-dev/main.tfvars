@@ -135,3 +135,22 @@ db = {
   }
 }
 
+load_balancers = {
+  private = {
+    internal           = true
+    load_balancer_type = "application"
+    allow_lb_sg_cidr   = ["10.10.4.0/24", "10.10.5.0/24", "10.10.2.0/24", "10.10.3.0/24"]
+    subnet_ref         = "app"
+    acm_https_arn      = null
+
+  }
+
+  public = {
+    internal           = false
+    load_balancer_type = "application"
+    allow_lb_sg_cidr   = ["0.0.0.0/0"]
+    subnet_ref         = "public"
+    acm_https_arn      = "arn:aws:acm:us-east-1:533267172446:certificate/ea7b84e8-b49b-4e74-ae76-6494e2c59cd6"
+  }
+
+}
