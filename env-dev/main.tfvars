@@ -54,9 +54,9 @@ eks = {
 
   }
   add_ons = {
-    vpc-cni = "v1.18.3-eksbuilt.2"
-    kube-proxy = "v1.30.3-eksbuilt.2"
-    coredns = "v1.11.1-eksbuilt.11"
+    vpc-cni = "v1.18.3-eksbuild.3"
+    kube-proxy = "v1.30.3-eksbuild.5"
+    coredns = "v1.11.3-eksbuild.1"
 
   }
 }
