@@ -59,4 +59,11 @@ eks = {
     coredns = "v1.11.3-eksbuild.1"
 
   }
+  eks-iam-access = {
+    workstation = {
+      principal_arn = "arn:aws:iam::533267172446:role/workstation-role"
+      policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+      kubernetes_groups = []
+    }
+  }
 }
