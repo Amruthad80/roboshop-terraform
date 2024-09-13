@@ -42,6 +42,7 @@ db = {
 }
 
 eks = {
+  eks_version = "1.30"
   node_groups = {
     main-spot = {
       max_size = 3
@@ -52,5 +53,10 @@ eks = {
     }
 
   }
+  add_ons = {
+    vpc-cni = "v1.18.3-eksbuilt.2"
+    kube-proxy = "v1.30.3-eksbuilt.2"
+    coredns = "v1.11.1-eksbuilt.11"
 
+  }
 }
