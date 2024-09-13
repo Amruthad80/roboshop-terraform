@@ -65,5 +65,10 @@ eks = {
       policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
       kubernetes_groups = []
     }
+    sso-user = {
+      principal_arn     = "arn:aws:iam::533267172446:root"
+      policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+      kubernetes_groups = []
+    }
   }
 }
