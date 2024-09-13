@@ -35,7 +35,15 @@ resource "aws_eks_addon" "addons" {
   cluster_name                = aws_eks_cluster.main.name
   addon_name                  = each.key
   addon_version               = each.value
-  #resolve_conflicts_on_create = "OVERWRITE"
+  resolve_conflicts_on_create = "OVERWRITE"
+}
+
+resource "aws_eks_access_entry" "example" {
+  cluster_name      = aws_eks_cluster.main.name
+  principal_arn     = "arn:aws:iam::533267172446:role/workstation-role"
+  kubernetes_groups = []
+  type              = "STANDARD"
+
 }
 #
 # module "eks-iam-access" {
