@@ -40,7 +40,7 @@ spec:
       path: "roboshop-${var.env}"
       version: "v2"
       auth:
-        tokensecretRef:
+        tokenSecretRef:
           name: "vault-token"
           key: "token"
           namespace: kube-system
